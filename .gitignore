@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Atmakur.Testing.Core/bin/Debug
+/Atmakur.Testing.Core/obj/Debug
+/Atmakur.Testing.Pages/bin/Debug
+/Atmakur.Testing.Pages/obj/Debug
+/packages
+/WebTestingFramework/bin/Debug
+/WebTestingFramework/obj/Debug
+/Atmakur.Testing.Core/bin/Release
+/Atmakur.Testing.Core/obj/Release
+/Atmakur.Testing.Pages/bin/Release
+/Atmakur.Testing.Pages/obj/Release
+/WebTestingFramework/bin/Release
+/WebTestingFramework/obj/Release

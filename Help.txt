@@ -1,0 +1,71 @@
+Known Issues:
+
+If the tests dont show up in the test explorer:
+1. Delete this folder: C:\Users\local_username\AppData\Local\Temp\VisualStudioTestExplorerExtensions\NUnit3TestAdapter.3.x.x
+2. Restart Visual Studio
+
+When the tests are run using NUnit3 console runner, the below error message is thrown. But all the tests get passed and no issues.
+1) Invalid : WebTestingFramework.Base.TestsBase
+No suitable constructor was found
+
+
+Pre-requisites:
+
+Environment Variables:
+1. TestEnvironment --> the environment you want to run your tests on. This value should match the value in database Configurations collection Environment value.
+2. SL_AccessKey --> The Sauce Labs access key to be entered as the value. If UseSauceLabs is true.
+3. SL_Username --> The Sauce Labs Username to be entered as the value. If UseSauceLabs is true.
+4. BuildId --> The Build Id which should be displayed on SauceLabs Builds section. This will be useful for CI/CD tools. Ex.: TeamCity
+
+1. Download & Install MongoDB.
+2. Create a Database: TestAutomation
+3. Create a Collection: Configurations
+4. Insert the below document per environment:
+
+{
+    "Environment" : "CI",
+    "AppConfig" : {
+        "UseSauceLabs" : true,
+        "InitUrl" : "http://www.google.com/",
+        "ElementLoadWaitTime" : "240",
+        "SeleniumCommandWaitTime" : "240",
+        "SauceRemoteDriverUri" : "http://ondemand.saucelabs.com:80/wd/hub",
+        "SeleniumGridDriverUri" : "http://your_machine_name.domain.com:4444/wd/hub",
+        "UseSeleniumGrid" : false,
+        "OutputResultsToFile" : true,
+        "OutputResultsToConsole" : true,
+        "SL_Tunnel" : "SL_TunnelCI",
+        "BuildName" : "Build_CI",
+        //Add capabalities here as required. Ex: "name:value"
+        "Capabilities" : [ 
+            ""
+        ]
+    },
+    "Browsers" : [ 
+        {
+            "Browser" : "chrome",
+            "Version" : "64",
+            "Platform" : "Windows 10",
+            "IsEnabled" : true
+        }, 
+        {
+            "Browser" : "internet explorer",
+            "Version" : "11",
+            "Platform" : "Windows 10",
+            "IsEnabled" : true
+        }, 
+        {
+            "Browser" : "firefox",
+            "Version" : "58",
+            "Platform" : "Windows 10",
+            "IsEnabled" : true
+        }, 
+        {
+            "Browser" : "microsoftedge",
+            "Version" : "16",
+            "Platform" : "Windows 10",
+            "IsEnabled" : true
+        }
+        // In casse you need more browsers to run the tests add here. If you want to disable your tests running on specific browser, set the "IsEnabled" flag for that browser to "false".
+    ]
+}
