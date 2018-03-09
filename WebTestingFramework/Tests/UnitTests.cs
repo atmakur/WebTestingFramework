@@ -1,6 +1,7 @@
 ﻿using Atmakur.Testing.Core.Utilities;
 using NUnit.Framework;
 using WebTestingFramework.Base;
+using System;
 
 namespace WebTestingFramework.Tests
 {
@@ -63,6 +64,12 @@ namespace WebTestingFramework.Tests
                 .NavigateToHomePage()
                 .EnterQueryText("Bronze")
                 .ValidateSearchResult("Bronze - Google Search");
+        }
+        
+        [TearDown]
+        public void Cleanup()
+        {
+            GC.Collect;
         }
     }
 }
