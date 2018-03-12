@@ -15,7 +15,7 @@ namespace WebTestingFramework.Base
         public IWebDriver BaseWebDriver { get; private set; }
         public TestCaseResult TestContextResult { get; set; }
         private DriverBase _driverBase;
-        private DateTime _testStartTime, _testEndTime;
+        private DateTime _testStartTime;
         private TestContext _currentTestCtx = null;
         private TimeSpan _testDuration;
 
@@ -42,13 +42,12 @@ namespace WebTestingFramework.Base
         ~TestsBase()
         {
             TestContextResult.Add("TestCaseResult", _currentTestCtx.Result.Outcome.Status.ToString());
-            if (_currentTestCtx.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
-                FailedTest();
-            else
+            if (_currentTestCtx.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Passed)
                 PassedTest();
+            else
+                FailedTest();
             DisposeWebDriverInstance();
-            _testEndTime = DateTime.Now;
-            _testDuration = _testEndTime - _testStartTime;
+            _testDuration = DateTime.Now - _testStartTime;
             TestContextResult.Add("TestEndTime", DateTime.Now.ToFormattedString());
             TestContextResult.Add("TestDuration", string.Format("{0} seconds", _testDuration.TotalSeconds));
             TestResultsHelper.GenerateOutputResults(TestContextResult);
