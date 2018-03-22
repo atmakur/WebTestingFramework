@@ -6,13 +6,13 @@ using System;
 namespace WebTestingFramework.Tests
 {
     [TestFixtureSource(typeof(TextFixtureArgs))]
-    public class UnitTests1
+    public class UnitTests2
     {
         string _browserName = string.Empty;
         string _version = string.Empty;
         string _platform = string.Empty;
 
-        public UnitTests1(string browser, string version, string platform)
+        public UnitTests2(string browser, string version, string platform)
         {
             _browserName = browser;
             _version = version;
@@ -21,55 +21,55 @@ namespace WebTestingFramework.Tests
 
         [Test]
         [Parallelizable(ParallelScope.Self)]
-        public void MyTest1()
+        public void MyTest5()
         {
             var testBase = new TestsBase(_browserName, _version, _platform);
 
             testBase.
                 Initialize()
                 .NavigateToHomePage()
-                .EnterQueryText("Platinum")
-                .ValidateSearchResult("Platinum - Google Search");
+                .EnterQueryText("Iron")
+                .ValidateSearchResult("Iron - Google Search");
         }
 
         [Test]
         [Parallelizable(ParallelScope.Self)]
-        public void MyTest2()
+        public void MyTest6()
         {
             var testBase = new TestsBase(_browserName, _version, _platform);
             testBase.
                 Initialize()
                 .NavigateToHomePage()
-                .EnterQueryText("Gold")
-                .ValidateSearchResult("Gold - Google Search");
+                .EnterQueryText("Steel")
+                .ValidateSearchResult("Steel - Google Search");
         }
 
         [Test]
         [Parallelizable(ParallelScope.Self)]
-        public void MyTest3()
+        public void MyTest7()
         {
             var testBase = new TestsBase(_browserName, _version, _platform);
 
             testBase.
                 Initialize()
                 .NavigateToHomePage()
-                .EnterQueryText("Silver")
-                .ValidateSearchResult("Silver - Google Search");
+                .EnterQueryText("Aluminium")
+                .ValidateSearchResult("Aluminium - Google Search");
         }
 
         [Test]
         [Parallelizable(ParallelScope.Self)]
-        public void MyTest4()
+        public void MyTest8()
         {
             var testBase = new TestsBase(_browserName, _version, _platform);
 
             testBase.
                 Initialize()
                 .NavigateToHomePage()
-                .EnterQueryText("Bronze")
-                .ValidateSearchResult("Bronze - Google Search");
+                .EnterQueryText("Gunmetal")
+                .ValidateSearchResult("Gunmetal - Google Search");
         }
-        
+
         [TearDown]
         public void Cleanup()
         {

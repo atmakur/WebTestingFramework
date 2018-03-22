@@ -9,7 +9,6 @@ using System;
 
 namespace WebTestingFramework.Base
 {
-    [TestFixture]
     public class TestsBase : IWebTest
     {
         public IWebDriver BaseWebDriver { get; private set; }

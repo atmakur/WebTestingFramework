@@ -60,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Base\TestsBase.cs" />
     <Compile Include="Tests\UnitTests.cs" />
+    <Compile Include="Tests\UnitTests2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -78,6 +79,9 @@
       <Project>{3a09c58a-497c-4b25-800d-ecbfa7b57923}</Project>
       <Name>Atmakur.Testing.Pages</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

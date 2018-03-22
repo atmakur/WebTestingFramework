@@ -37,7 +37,7 @@ namespace Atmakur.Testing.Core
 
             var driverCapabilities = new DesiredCapabilities();
             driverCapabilities.SetCapability(CapabilityType.BrowserName, _browserName);
-            driverCapabilities.SetCapability(CapabilityType.BrowserVersion, _browserVersion);
+            driverCapabilities.SetCapability(CapabilityType.Version, _browserVersion);
 
             if (AppConfig.UseSauceLabs)
             {
@@ -64,13 +64,17 @@ namespace Atmakur.Testing.Core
             switch (_browserName)
             {
                 case "chrome":
-                    return new ChromeDriver();
+                    var chromOptions = new ChromeOptions();
+                    return new ChromeDriver(chromOptions);
                 case "microsoftedge":
-                    return new EdgeDriver();
+                    var edgeOptions = new EdgeOptions();
+                    return new EdgeDriver(edgeOptions);
                 case "firefox":
-                    return new FirefoxDriver();
+                    var firefoxOptions = new FirefoxOptions();
+                    return new FirefoxDriver(firefoxOptions);
                 case "internet explorer":
-                    return new InternetExplorerDriver();
+                    var ieOptions = new InternetExplorerOptions();
+                    return new InternetExplorerDriver(ieOptions);
                 default:
                     throw new InvalidOperationException("Driver type not supported");
             }
