@@ -10,7 +10,7 @@ using System;
 
 namespace Atmakur.Testing.Core
 {
-    public class DriverBase
+    public sealed class DriverBase
     {
         private string _browserName;
         private string _browserVersion;

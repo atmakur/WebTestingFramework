@@ -9,14 +9,13 @@ using System;
 
 namespace WebTestingFramework.Base
 {
-    public class TestsBase : IWebTest
+    public sealed class TestsBase : IWebTest
     {
         public IWebDriver BaseWebDriver { get; private set; }
         public TestCaseResult TestContextResult { get; set; }
-        private DriverBase _driverBase;
-        private DateTime _testStartTime;
-        private TestContext _currentTestCtx = null;
-        private TimeSpan _testDuration;
+        private readonly DriverBase _driverBase;
+        private readonly DateTime _testStartTime;
+        private readonly TestContext _currentTestCtx = null;
 
         public TestsBase(string browser, string version, string platform)
         {
@@ -46,7 +45,7 @@ namespace WebTestingFramework.Base
             else
                 FailedTest();
             DisposeWebDriverInstance();
-            _testDuration = DateTime.Now - _testStartTime;
+            var _testDuration = DateTime.Now - _testStartTime;
             TestContextResult.Add("TestEndTime", DateTime.Now.ToFormattedString());
             TestContextResult.Add("TestDuration", string.Format("{0} seconds", _testDuration.TotalSeconds));
             TestResultsHelper.GenerateOutputResults(TestContextResult);
