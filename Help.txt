@@ -2,7 +2,7 @@ How to execute using NUnit Console:
 1. open new command prompt console.
 2. Build the project in Debug/Release mode.
 3. Navigate to the Debug/Release folder of the project.
-4. Type the command: nunit3-console.exe WebTestingFramework.dll --workers=16
+4. Type the command: nunit3-console.exe WebTestingFramework.dll --workers=8
 nunit3-console.exe <Output_Tests_Library1.dll,[Output_Tests_Library2.dll],[Output_Tests_Library3.dll],...> --workers=<number of threads to use>
 
 Known Issues:
